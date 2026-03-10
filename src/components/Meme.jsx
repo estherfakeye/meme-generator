@@ -115,7 +115,10 @@ const Meme = () => {
             <button 
               type="button"
               onClick={getMemeImage}
-              className="col-span-2 bg-gradient-to-r from-purple-600 to-purple-800 text-white font-bold py-3 rounded hover:to-purple-900 transition-all shadow-lg"
+              className="col-span-2 bg-gradient-to-r from-purple-600 to-purple-800 text-white font-bold py-3 rounded hover:to-purple-900 transition-all "
+              style={{
+                boxShadow: '0 4px 14px rgba(147, 51, 234, 0.4)'
+              }}
             >
               Get a new meme image 🖼️
             </button>
@@ -151,7 +154,7 @@ const Meme = () => {
           <button 
             type="button"
             onClick={downloadMeme}
-            className="w-full mt-4 bg-white text-purple-700 sm:border-3 border-purple-600 font-bold py-3 rounded-lg hover:bg-purple-50 transition-all shadow-lg"
+            className="w-full mt-4 bg-white text-purple-700 sm:border-2 border-purple-600 font-bold py-3 rounded-lg hover:bg-purple-50 transition-all shadow-lg"
             style={{
               filter: 'drop-shadow(0 4px 8px rgba(0, 0, 0, 0.2))'
             }}
