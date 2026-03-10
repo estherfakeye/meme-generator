@@ -3,9 +3,10 @@ import Header from './components/Header'
 
 function App() {
   return (
-    <div className="min-h-screen bg-black py-8 px-4">
-      <div className="max-w-2xl mx-auto">
+    <div className="min-h-screen bg-black">
+      
         <Header />
+        <div className="max-w-2xl mx-auto px-4 py-8">
         <Meme />
       </div>
     </div>

@@ -69,7 +69,7 @@ const Meme = () => {
             <button 
               type="button"
               onClick={getMemeImage}
-              className="col-span-2 bg-gradient-to-r from-purple-600 to-blue-500 text-white font-bold py-3 rounded hover:from-purple-700 hover:to-blue-600"
+              className="col-span-2 bg-gradient-to-r from-purple-600 to-purple-800 text-white font-bold py-3 rounded hover:to-purple-900 transition-all shadow-md"
             >
               Get a new meme image 🖼️
             </button>
