@@ -40,6 +40,52 @@ const Meme = () => {
       [name]: value
     }))
   }
+  function downloadMeme() {
+  const canvas = document.createElement('canvas')
+  const ctx = canvas.getContext('2d')
+  const img = new Image()
+  
+  img.crossOrigin = 'anonymous'
+  img.src = meme.randomImage
+  
+  img.onload = () => {
+    // Set canvas size to image size
+    canvas.width = img.width
+    canvas.height = img.height
+    
+    // Draw image
+    ctx.drawImage(img, 0, 0)
+    
+    // Set text style (classic meme font)
+    ctx.fillStyle = 'white'
+    ctx.strokeStyle = 'black'
+    ctx.lineWidth = Math.floor(img.width / 200) // Dynamic stroke width
+    ctx.font = `bold ${Math.floor(img.width / 12)}px Impact, sans-serif`
+    ctx.textAlign = 'center'
+    
+    // Draw top text
+    if (meme.topText) {
+      ctx.textBaseline = 'top'
+      const topY = img.height * 0.05
+      ctx.strokeText(meme.topText.toUpperCase(), canvas.width / 2, topY)
+      ctx.fillText(meme.topText.toUpperCase(), canvas.width / 2, topY)
+    }
+    
+    // Draw bottom text
+    if (meme.bottomText) {
+      ctx.textBaseline = 'bottom'
+      const bottomY = img.height * 0.95
+      ctx.strokeText(meme.bottomText.toUpperCase(), canvas.width / 2, bottomY)
+      ctx.fillText(meme.bottomText.toUpperCase(), canvas.width / 2, bottomY)
+    }
+    
+    // Download
+    const link = document.createElement('a')
+    link.download = 'my-meme.png'
+    link.href = canvas.toDataURL('image/png')
+    link.click()
+  }
+}
   
   return (
     <div className="bg-white rounded-lg shadow-lg p-4 sm:p-6">
@@ -102,9 +148,16 @@ const Meme = () => {
               </h2>
             )}
           </div>
+          <button 
+            type="button"
+            onClick={downloadMeme}
+            className="w-full mt-4 bg-white text-purple-700 sm:border-3 border-purple-600 font-bold py-3 rounded-lg hover:bg-purple-50 transition-all shadow-md"
+          >
+            📥 Download Meme 
+          </button>
          </>
         )}
-      
+         
 
     </div>
   )
